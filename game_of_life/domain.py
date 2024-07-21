@@ -1,6 +1,6 @@
-from typing import List, Literal, Tuple
+from typing import List, Tuple, Literal, Union
 
-World = List[List[Literal["-", "o"]]]
+World = List[List[Union[Literal["-"], Literal["o"]]]]
 
 
 def _neighbors_of(coordinates: Tuple[int, int], world: World):

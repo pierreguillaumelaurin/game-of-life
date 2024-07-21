@@ -1,8 +1,10 @@
-import os
-import time
+from time import sleep
+from random import choice
 
 from game_of_life.animation import render_frame
 from game_of_life.domain import World, tick
+
+GRID_LENGTH = 20
 
 
 def game_of_life(seed: World):
@@ -12,17 +14,10 @@ def game_of_life(seed: World):
     while True:
         render_frame(current)
         current = tick(current)
-        time.sleep(0.8)
+        sleep(0.8)
 
 
 if __name__ == "__main__":
     game_of_life(
-        [
-            ["o", "-", "o", "-", "o", "-"],
-            ["-", "o", "-", "o", "-", "o"],
-            ["o", "-", "o", "-", "o", "-"],
-            ["-", "o", "-", "o", "-", "o"],
-            ["o", "-", "o", "-", "o", "-"],
-            ["-", "o", "-", "o", "-", "o"],
-        ]
+        [[choice(['-', 'o']) for _ in range(GRID_LENGTH)] for __ in range(GRID_LENGTH)]
     )
