@@ -1,4 +1,4 @@
-from game_of_life.main import tick
+from game_of_life.domain import tick
 
 
 def test_should_return_alive_cell_when_dead_cell_surrounded_by_3():
