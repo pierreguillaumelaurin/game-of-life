@@ -10,6 +10,7 @@ def test_should_return_alive_cell_when_dead_cell_surrounded_by_3():
 
     assert next_state[1][1] == 'o'
 
+
 def test_should_return_dead_cell_when_alive_cell_surrounded_by_less_than_2():
     next_state = tick([
         ['-', '-', '-'],
@@ -19,6 +20,7 @@ def test_should_return_dead_cell_when_alive_cell_surrounded_by_less_than_2():
 
     assert next_state[1][1] == '-'
 
+
 def test_should_return_alive_cell_when_alive_cell_surrounded_by_2():
     next_state = tick([
         ['-', '-', '-'],
@@ -27,6 +29,7 @@ def test_should_return_alive_cell_when_alive_cell_surrounded_by_2():
     ])
 
     assert next_state[1][1] == 'o'
+
 
 def test_should_return_alive_cell_when_alive_cell_surrounded_by_3():
     next_state = tick([
