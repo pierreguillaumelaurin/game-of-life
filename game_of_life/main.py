@@ -1,16 +1,7 @@
-# Given an initial state, we can derive all the others
-# Rules:
-# For each live cells:
-# if less than 2 other live neighbors then it dies
-# if 2 or 3 other live neighbors then it lives
-# if more than 3 other live neighbors then it dies
-# For each dead cells:
-# if exactly 3 neighbors, then it transforms into a live cell
+import os
+import time
 from typing import List, Literal, Tuple
-
-# Steps:
-# evaluate next state
-# render next state visually
+import sys
 
 World = List[List[Literal["-", "o"]]]
 
@@ -35,6 +26,7 @@ def next_tile_when_dead(position: Tuple[int, int], world: World):
 
     return 'o' if len(neighbors_of(position, world)) == 3 else world[i][y]
 
+
 def next_tile_when_alive(position: Tuple[int, int], world: World):
     i, y = position
     cell = world[i][y]
@@ -53,16 +45,41 @@ def next_tile(position: Tuple[int, int], world: World):
 
 
 def tick(world: World):
-    return [[next_tile((i, y), world) for y in range(len(world))] for i in range(len(world))]
+    return [[next_tile((i, y), world) for y in range(len(world[i]))] for i in range(len(world))]
+
+
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def render(world: World):
+    clear_terminal()
+
+    output = ""
+    for row in world:
+        for cell in row:
+            output += cell
+
+        output += "\n"
+
+    print(output)
 
 
 def game_of_life(seed: World):
     assert len(seed) == len(seed[1])
+    current = seed
     while True:
-        tick(seed)
+        render(current)
+        current = tick(current)
+        time.sleep(0.8)
 
-
-# TODO make render function
 
 if __name__ == "__main__":
-    print("hello")
+    game_of_life([
+        ['o', '-', 'o', '-', 'o', '-'],
+        ['-', 'o', '-', 'o', '-', 'o'],
+        ['o', '-', 'o', '-', 'o', '-'],
+        ['-', 'o', '-', 'o', '-', 'o'],
+        ['o', '-', 'o', '-', 'o', '-'],
+        ['-', 'o', '-', 'o', '-', 'o'],
+    ])
