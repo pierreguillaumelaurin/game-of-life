@@ -101,6 +101,16 @@ graph = ["objgraph (>=1.7.2)"]
 profile = ["gprof2dot (>=2022.7.29)"]
 
 [[package]]
+name = "docopt"
+version = "0.6.2"
+description = "Pythonic argument parser, that will make you smile"
+optional = false
+python-versions = "*"
+files = [
+    {file = "docopt-0.6.2.tar.gz", hash = "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"},
+]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
@@ -151,23 +161,6 @@ files = [
 ]
 
 [[package]]
-name = "mpmath"
-version = "1.3.0"
-description = "Python library for arbitrary-precision floating-point arithmetic"
-optional = false
-python-versions = "*"
-files = [
-    {file = "mpmath-1.3.0-py3-none-any.whl", hash = "sha256:a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"},
-    {file = "mpmath-1.3.0.tar.gz", hash = "sha256:7a28eb2a9774d00c7bc92411c19a89209d5da7c4c9a9e227be8330a23a25b91f"},
-]
-
-[package.extras]
-develop = ["codecov", "pycodestyle", "pytest (>=4.6)", "pytest-cov", "wheel"]
-docs = ["sphinx"]
-gmpy = ["gmpy2 (>=2.1.0a4)"]
-tests = ["pytest (>=4.6)"]
-
-[[package]]
 name = "mypy-extensions"
 version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
@@ -177,24 +170,6 @@ files = [
     {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
     {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
 ]
-
-[[package]]
-name = "networkx"
-version = "3.3"
-description = "Python package for creating and manipulating graphs and networks"
-optional = false
-python-versions = ">=3.10"
-files = [
-    {file = "networkx-3.3-py3-none-any.whl", hash = "sha256:28575580c6ebdaf4505b22c6256a2b9de86b316dc63ba9e93abde3d78dfdbcf2"},
-    {file = "networkx-3.3.tar.gz", hash = "sha256:0c127d8b2f4865f59ae9cb8aafcd60b5c70f3241ebd66f7defad7c4ab90126c9"},
-]
-
-[package.extras]
-default = ["matplotlib (>=3.6)", "numpy (>=1.23)", "pandas (>=1.4)", "scipy (>=1.9,!=1.11.0,!=1.11.1)"]
-developer = ["changelist (==0.5)", "mypy (>=1.1)", "pre-commit (>=3.2)", "rtoml"]
-doc = ["myst-nb (>=1.0)", "numpydoc (>=1.7)", "pillow (>=9.4)", "pydata-sphinx-theme (>=0.14)", "sphinx (>=7)", "sphinx-gallery (>=0.14)", "texext (>=0.6.7)"]
-extra = ["lxml (>=4.6)", "pydot (>=2.0)", "pygraphviz (>=1.12)", "sympy (>=1.10)"]
-test = ["pytest (>=7.2)", "pytest-cov (>=4.0)"]
 
 [[package]]
 name = "packaging"
@@ -250,25 +225,6 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
-name = "pydot"
-version = "2.0.0"
-description = "Python interface to Graphviz's Dot"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "pydot-2.0.0-py3-none-any.whl", hash = "sha256:408a47913ea7bd5d2d34b274144880c1310c4aee901f353cf21fe2e526a4ea28"},
-    {file = "pydot-2.0.0.tar.gz", hash = "sha256:60246af215123fa062f21cd791be67dda23a6f280df09f68919e637a1e4f3235"},
-]
-
-[package.dependencies]
-pyparsing = ">=3"
-
-[package.extras]
-dev = ["black", "chardet"]
-release = ["zest.releaser[recommended]"]
-tests = ["black", "chardet", "tox"]
-
-[[package]]
 name = "pylint"
 version = "3.2.5"
 description = "python code static checker"
@@ -298,20 +254,6 @@ spelling = ["pyenchant (>=3.2,<4.0)"]
 testutils = ["gitpython (>3)"]
 
 [[package]]
-name = "pyparsing"
-version = "3.1.2"
-description = "pyparsing module - Classes and methods to define and execute parsing grammars"
-optional = false
-python-versions = ">=3.6.8"
-files = [
-    {file = "pyparsing-3.1.2-py3-none-any.whl", hash = "sha256:f9db75911801ed778fe61bb643079ff86601aca99fcae6345aa67292038fb742"},
-    {file = "pyparsing-3.1.2.tar.gz", hash = "sha256:a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"},
-]
-
-[package.extras]
-diagrams = ["jinja2", "railroad-diagrams"]
-
-[[package]]
 name = "pytest"
 version = "7.4.4"
 description = "pytest: simple powerful testing with Python"
@@ -334,21 +276,20 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
-name = "sympy"
-version = "1.13.1"
-description = "Computer algebra system (CAS) in Python"
+name = "pytest-watch"
+version = "4.2.0"
+description = "Local continuous test runner with pytest and watchdog."
 optional = false
-python-versions = ">=3.8"
+python-versions = "*"
 files = [
-    {file = "sympy-1.13.1-py3-none-any.whl", hash = "sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8"},
-    {file = "sympy-1.13.1.tar.gz", hash = "sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f"},
+    {file = "pytest-watch-4.2.0.tar.gz", hash = "sha256:06136f03d5b361718b8d0d234042f7b2f203910d8568f63df2f866b547b3d4b9"},
 ]
 
 [package.dependencies]
-mpmath = ">=1.1.0,<1.4"
-
-[package.extras]
-dev = ["hypothesis (>=6.70.0)", "pytest (>=7.1.0)"]
+colorama = ">=0.3.3"
+docopt = ">=0.4.0"
+pytest = ">=2.6.4"
+watchdog = ">=0.6.0"
 
 [[package]]
 name = "tomli"
@@ -383,7 +324,51 @@ files = [
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
 ]
 
+[[package]]
+name = "watchdog"
+version = "4.0.1"
+description = "Filesystem events monitoring"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "watchdog-4.0.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:da2dfdaa8006eb6a71051795856bedd97e5b03e57da96f98e375682c48850645"},
+    {file = "watchdog-4.0.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:e93f451f2dfa433d97765ca2634628b789b49ba8b504fdde5837cdcf25fdb53b"},
+    {file = "watchdog-4.0.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:ef0107bbb6a55f5be727cfc2ef945d5676b97bffb8425650dadbb184be9f9a2b"},
+    {file = "watchdog-4.0.1-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:17e32f147d8bf9657e0922c0940bcde863b894cd871dbb694beb6704cfbd2fb5"},
+    {file = "watchdog-4.0.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:03e70d2df2258fb6cb0e95bbdbe06c16e608af94a3ffbd2b90c3f1e83eb10767"},
+    {file = "watchdog-4.0.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:123587af84260c991dc5f62a6e7ef3d1c57dfddc99faacee508c71d287248459"},
+    {file = "watchdog-4.0.1-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:093b23e6906a8b97051191a4a0c73a77ecc958121d42346274c6af6520dec175"},
+    {file = "watchdog-4.0.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:611be3904f9843f0529c35a3ff3fd617449463cb4b73b1633950b3d97fa4bfb7"},
+    {file = "watchdog-4.0.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:62c613ad689ddcb11707f030e722fa929f322ef7e4f18f5335d2b73c61a85c28"},
+    {file = "watchdog-4.0.1-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:d4925e4bf7b9bddd1c3de13c9b8a2cdb89a468f640e66fbfabaf735bd85b3e35"},
+    {file = "watchdog-4.0.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:cad0bbd66cd59fc474b4a4376bc5ac3fc698723510cbb64091c2a793b18654db"},
+    {file = "watchdog-4.0.1-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:a3c2c317a8fb53e5b3d25790553796105501a235343f5d2bf23bb8649c2c8709"},
+    {file = "watchdog-4.0.1-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:c9904904b6564d4ee8a1ed820db76185a3c96e05560c776c79a6ce5ab71888ba"},
+    {file = "watchdog-4.0.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:667f3c579e813fcbad1b784db7a1aaa96524bed53437e119f6a2f5de4db04235"},
+    {file = "watchdog-4.0.1-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:d10a681c9a1d5a77e75c48a3b8e1a9f2ae2928eda463e8d33660437705659682"},
+    {file = "watchdog-4.0.1-pp310-pypy310_pp73-macosx_10_9_x86_64.whl", hash = "sha256:0144c0ea9997b92615af1d94afc0c217e07ce2c14912c7b1a5731776329fcfc7"},
+    {file = "watchdog-4.0.1-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "sha256:998d2be6976a0ee3a81fb8e2777900c28641fb5bfbd0c84717d89bca0addcdc5"},
+    {file = "watchdog-4.0.1-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "sha256:e7921319fe4430b11278d924ef66d4daa469fafb1da679a2e48c935fa27af193"},
+    {file = "watchdog-4.0.1-pp38-pypy38_pp73-macosx_11_0_arm64.whl", hash = "sha256:f0de0f284248ab40188f23380b03b59126d1479cd59940f2a34f8852db710625"},
+    {file = "watchdog-4.0.1-pp39-pypy39_pp73-macosx_10_9_x86_64.whl", hash = "sha256:bca36be5707e81b9e6ce3208d92d95540d4ca244c006b61511753583c81c70dd"},
+    {file = "watchdog-4.0.1-pp39-pypy39_pp73-macosx_11_0_arm64.whl", hash = "sha256:ab998f567ebdf6b1da7dc1e5accfaa7c6992244629c0fdaef062f43249bd8dee"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_aarch64.whl", hash = "sha256:dddba7ca1c807045323b6af4ff80f5ddc4d654c8bce8317dde1bd96b128ed253"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_armv7l.whl", hash = "sha256:4513ec234c68b14d4161440e07f995f231be21a09329051e67a2118a7a612d2d"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_i686.whl", hash = "sha256:4107ac5ab936a63952dea2a46a734a23230aa2f6f9db1291bf171dac3ebd53c6"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_ppc64.whl", hash = "sha256:6e8c70d2cd745daec2a08734d9f63092b793ad97612470a0ee4cbb8f5f705c57"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_ppc64le.whl", hash = "sha256:f27279d060e2ab24c0aa98363ff906d2386aa6c4dc2f1a374655d4e02a6c5e5e"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_s390x.whl", hash = "sha256:f8affdf3c0f0466e69f5b3917cdd042f89c8c63aebdb9f7c078996f607cdb0f5"},
+    {file = "watchdog-4.0.1-py3-none-manylinux2014_x86_64.whl", hash = "sha256:ac7041b385f04c047fcc2951dc001671dee1b7e0615cde772e84b01fbf68ee84"},
+    {file = "watchdog-4.0.1-py3-none-win32.whl", hash = "sha256:206afc3d964f9a233e6ad34618ec60b9837d0582b500b63687e34011e15bb429"},
+    {file = "watchdog-4.0.1-py3-none-win_amd64.whl", hash = "sha256:7577b3c43e5909623149f76b099ac49a1a01ca4e167d1785c76eb52fa585745a"},
+    {file = "watchdog-4.0.1-py3-none-win_ia64.whl", hash = "sha256:d7b9f5f3299e8dd230880b6c55504a1f69cf1e4316275d1b215ebdd8187ec88d"},
+    {file = "watchdog-4.0.1.tar.gz", hash = "sha256:eebaacf674fa25511e8867028d281e602ee6500045b57f43b08778082f7f8b44"},
+]
+
+[package.extras]
+watchmedo = ["PyYAML (>=3.10)"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "03b92e09117dab9490404882e6279c909e6e67c67b910d0e249844327ad23271"
+content-hash = "6af3133cac31540c1d6e54ce998a28f7cb0e3301f966d31e157f8acf8d3e66cc"
