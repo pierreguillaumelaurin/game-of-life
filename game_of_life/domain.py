@@ -24,7 +24,7 @@ def _next_tile_when_dead(position: Tuple[int, int], world: World):
     cell = world[i][y]
     assert cell == "-"
 
-    return "o" if len(_neighbors_of(position, world)) == 3 else world[i][y]
+    return "o" if len(_neighbors_of(position, world)) == 3 else "-"
 
 
 def _next_tile_when_alive(position: Tuple[int, int], world: World):
@@ -32,11 +32,14 @@ def _next_tile_when_alive(position: Tuple[int, int], world: World):
     cell = world[i][y]
     assert cell == "o"
 
-    match len(_neighbors_of(position, world)):
+    neighbors = _neighbors_of(position, world)
+    match len(neighbors):
         case 0 | 1 | 4 | 5 | 6 | 7 | 8:
             return "-"
         case 2 | 3:
             return "o"
+        case _:
+            raise ValueError('received invalid length:', len(neighbors))
 
 
 def _next_tile(position: Tuple[int, int], world: World):
