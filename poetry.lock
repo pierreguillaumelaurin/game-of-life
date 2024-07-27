@@ -101,16 +101,6 @@ graph = ["objgraph (>=1.7.2)"]
 profile = ["gprof2dot (>=2022.7.29)"]
 
 [[package]]
-name = "docopt"
-version = "0.6.2"
-description = "Pythonic argument parser, that will make you smile"
-optional = false
-python-versions = "*"
-files = [
-    {file = "docopt-0.6.2.tar.gz", hash = "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"},
-]
-
-[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
@@ -276,20 +266,19 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
-name = "pytest-watch"
-version = "4.2.0"
-description = "Local continuous test runner with pytest and watchdog."
+name = "pytest-watcher"
+version = "0.4.2"
+description = "Automatically rerun your tests on file modifications"
 optional = false
-python-versions = "*"
+python-versions = "<4.0.0,>=3.7.0"
 files = [
-    {file = "pytest-watch-4.2.0.tar.gz", hash = "sha256:06136f03d5b361718b8d0d234042f7b2f203910d8568f63df2f866b547b3d4b9"},
+    {file = "pytest_watcher-0.4.2-py3-none-any.whl", hash = "sha256:a43949ba67dd8d7e1fd0de5eea44a999081f0aec9f93b4e744264b4c6a3d9bbe"},
+    {file = "pytest_watcher-0.4.2.tar.gz", hash = "sha256:7b292f025ca19617cd7567c228c6187b5087f2da9e4d2cf6e144e5764a0471b0"},
 ]
 
 [package.dependencies]
-colorama = ">=0.3.3"
-docopt = ">=0.4.0"
-pytest = ">=2.6.4"
-watchdog = ">=0.6.0"
+tomli = {version = ">=2.0.1,<3.0.0", markers = "python_version < \"3.11\""}
+watchdog = ">=2.0.0"
 
 [[package]]
 name = "tomli"
@@ -371,4 +360,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "6af3133cac31540c1d6e54ce998a28f7cb0e3301f966d31e157f8acf8d3e66cc"
+content-hash = "4ed1ef23d74ea4ac3e52fe38b0000ff6b27b8f6c580644fae9a89d6144ad0a8c"
