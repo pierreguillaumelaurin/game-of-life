@@ -11,9 +11,7 @@ def render_frame(grid: List[List[str]]):
 
     output = ""
     for row in grid:
-        for cell in row:
-            output += cell
-
+        output += "".join(row)
         output += "\n"
 
     print(output)
