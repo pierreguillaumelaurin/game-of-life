@@ -1,8 +1,8 @@
 from time import sleep
 from random import choice
 
-from game_of_life.animation import render_frame
-from game_of_life.domain import World, tick
+from animation import render_frame
+from domain import World, tick
 
 GRID_LENGTH = 20
 

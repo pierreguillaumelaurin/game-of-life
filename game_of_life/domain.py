@@ -12,8 +12,8 @@ def _neighbors_of(coordinates: Tuple[int, int], world: World):
         (i, j)
         for i in adjacents_x
         for j in adjacents_y
-        if i < len(world)
-        and j < len(world[i])
+        if 0 <= i < len(world)
+        and 0 <= j < len(world[i])
         and world[i][j] == "o"
         and (i, j) != coordinates
     ]
